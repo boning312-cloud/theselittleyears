@@ -1,0 +1,224 @@
+<!doctype html>
+<!--
+  Approved by Boning (D-88, D-90). Source of truth for the public page; publish steps in docs/privacy-publish.md.
+  This page loads nothing from anywhere.
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; base-uri 'none'; form-action 'none'">
+<meta name="referrer" content="no-referrer">
+<title>Privacy Policy · 隐私政策 — These Little Years</title>
+<style>
+  :root { --ground: #ffffff; --ink: #2b2420; --faint: #6f655e; --accent: #c8642c; --line: #eee4dc; --note: #fff4ec; }
+  @media (prefers-color-scheme: dark) {
+    :root { --ground: #1c1917; --ink: #f2ece7; --faint: #b3a89f; --accent: #f0a274; --line: #3a332e; --note: #2c241f; }
+  }
+  html { -webkit-text-size-adjust: 100%; }
+  body { margin: 0; background: var(--ground); color: var(--ink); font: 16px/1.65 -apple-system, BlinkMacSystemFont, "PingFang SC", "Helvetica Neue", "Microsoft YaHei", sans-serif; }
+  main { max-width: 720px; margin: 0 auto; padding: 24px 16px 64px; }
+  h1 { font-size: 1.6rem; line-height: 1.3; margin: 0.4em 0 0.2em; }
+  h2 { font-size: 1.15rem; margin: 2em 0 0.5em; padding-top: 0.6em; border-top: 1px solid var(--line); }
+  p, li { overflow-wrap: anywhere; }
+  ol { padding-left: 1.6em; }
+  li { margin: 0.45em 0; }
+  li::marker { color: var(--faint); }
+  a { color: var(--accent); }
+  .meta { color: var(--faint); font-size: 0.92rem; }
+  .lang { display: flex; gap: 16px; margin: 8px 0 0; font-size: 0.95rem; }
+  .draft { background: var(--note); border: 1px solid var(--accent); border-radius: 10px; padding: 10px 14px; font-weight: 600; }
+  .placeholder { background: var(--note); border-radius: 4px; padding: 0 4px; }
+  section + section { margin-top: 56px; }
+</style>
+</head>
+<body>
+<main>
+
+<section id="en" lang="en">
+<h1>Privacy Policy</h1>
+<p class="meta">These Little Years · Effective date: 2026-10-16</p>
+<p class="lang"><a href="#zh">中文</a></p>
+
+<p>These Little Years is an app for parents and other adults who look after a child: you tell a moment about your child, and it writes it up as a memory and keeps track of how they grow. This page says what we collect, who processes it, how long it is kept, how you export and delete it, and what the developer can see and promises not to look at.</p>
+<p>This is a test version, distributed to a small number of families through Apple's TestFlight. The app is built and run by one individual developer, called "we" below: Bo Ning.</p>
+
+<h2>1. What we collect</h2>
+<ol>
+  <li id="en-1-1"><strong>Your account.</strong> When you use Sign in with Apple, Apple gives us an account identifier and an email address; if you chose "Hide My Email", that address is Apple's relay address. We do not store the name Apple provides. When you sign in with an email code, it is the email address you enter. Password sign-in exists only for the demo account used by Apple's App Review.</li>
+  <li id="en-1-2"><strong>Your child and you.</strong> Your child's nickname, birthday and she / he; who you are (mum, dad, or your own word); your family's time zone (from the phone's settings, used to work out which day "today" is).</li>
+  <li id="en-1-3"><strong>What you record.</strong> Recordings and the text transcribed from them, your corrections to that text, what you type, the AI's replies, the memories written up and every change you make to them, the photos you choose and the capture time stored in them (used to suggest a memory's date), growth tags, and the words your family often uses (if any).</li>
+  <li id="en-1-4"><strong>Diagnostics without content.</strong> Error reports when something goes wrong in the app (text, names, email addresses, identifiers, web addresses and file paths are removed before sending); a few usage events, such as starting and finishing a recording (number of segments and seconds), saving a memory, finishing an export, or deleting or restoring a kind of item, with the app's version number; and a record of each AI call: which step, which model, how long it took, how many tokens, the cost, and whether it succeeded — never what you said or what a memory contains. None of this leaves the phone until you have agreed to the AI notice and set up your child's profile.</li>
+  <li id="en-1-5"><strong>Feedback you send.</strong> The sentence you write in Settings → Feedback, together with the screen you were on, the app version and the identifier of the latest AI call; none of your memories are attached.</li>
+  <li id="en-1-6"><strong>Apple's crash reports.</strong> When the app crashes, Apple may pass a crash report to us through TestFlight, according to the settings on your phone.</li>
+  <li id="en-1-7"><strong>What we do not collect.</strong> The app asks only for microphone access; it does not ask for location, camera, contacts or ad-tracking permission. Photos are chosen with the system's own picker, only the ones you select are uploaded, and the app cannot browse your photo library. There are no ads and no third-party analytics or tracking tools in the app.  Before a photo is uploaded, the app re-saves it on the phone, so the uploaded copy carries none of the original's location data (GPS) or camera details; only the capture time is read on the phone and stored on its own (see 1.3).</li>
+</ol>
+
+<h2>2. What we use it for</h2>
+<ol>
+  <li id="en-2-1">To keep your content, so it is still there on a new phone or after signing in again; to reply to what you tell, write it up as memories, and notice how your child is growing.</li>
+  <li id="en-2-2">Diagnostics are used only to fix bugs, to see whether the app is stable, and to keep AI costs in check (at most 30 AI calls per family per day).</li>
+  <li id="en-2-3">We do not sell your data or use it for advertising, and we never use your family's content in our tests or in the instructions we give the AI without your explicit agreement.</li>
+</ol>
+
+<h2>3. Who processes it</h2>
+<p>Only these service providers handle your data, each for the purpose stated.</p>
+<ol>
+  <li id="en-3-1"><strong>Supabase</strong> stores all data, photos and recordings, handles sign-in, and runs our server code. The servers are in the United States.</li>
+  <li id="en-3-2"><strong>OpenAI</strong>: your recordings are sent to OpenAI to be turned into text. To get names right, your child's name and nickname, who you are, and the words your family often uses are sent along too.</li>
+  <li id="en-3-3"><strong>Anthropic (Claude)</strong>: what you say and type (including your corrections and the one-line request you may write for "rewrite"), the memories you save (the titles and first sentences of the latest ten when replying to you; the memory itself and the existing growth tags when noticing a change), plus your child's name, nickname, birthday, she / he, who you are and your family's words, are sent to Anthropic to reply to you, write it up as memories, and notice how your child is growing.</li>
+  <li id="en-3-4"><strong>Apple</strong> provides Sign in with Apple and distributes the test version and crash reports through TestFlight; when you delete your account, we ask Apple to revoke this app's Sign in with Apple authorization.</li>
+  <li id="en-3-5"><strong>Your photos are never sent to any AI.</strong> They are stored only in your family's private space on Supabase.</li>
+  <li id="en-3-6">Under their API terms, OpenAI and Anthropic <strong>do not use this content to train their models</strong> and generally delete it within 30 days. We have not turned on any option that would let them train on it or share it.</li>
+  <li id="en-3-7">Apart from these providers, we do not give your data to anyone, unless the law requires it.</li>
+</ol>
+
+<h2>4. Who can see your family's content</h2>
+<ol>
+  <li id="en-4-1">Only people signed in to your account. Every record belongs to one family and the server checks this in the database itself, so families cannot see each other's content, photo and audio files included.</li>
+  <li id="en-4-2">As the developer, I can technically see everything stored on the server. I promise: day to day I look only at numbers (counts, costs, errors); I open your family's content only when you ask me for help and agree, or when the law requires it; I never use your family's content in tests or AI instructions without your explicit agreement; I never sell or share it.</li>
+  <li id="en-4-3">The AI call records hold only the numbers listed in 1.4, no content.</li>
+</ol>
+
+<h2>5. How long it is kept</h2>
+<ol>
+  <li id="en-5-1"><strong>Recordings.</strong> A recording stays on the phone until the server confirms it has the transcript, so nothing is lost. On the server, a recording is deleted automatically 30 days after it was turned into text; the text stays. A recording that was uploaded but never used is deleted 30 days after upload.</li>
+  <li id="en-5-2"><strong>Text, memories, photos and growth tags</strong> are kept until you delete them.</li>
+  <li id="en-5-3"><strong>Things you delete.</strong> Deleted memories and conversations can be restored in Settings → Recently deleted for 30 days. After 30 days, deleted items are removed for good by a daily clean-up, together with their photo and audio files. A photo that no longer belongs to any memory is deleted 30 days later.</li>
+  <li id="en-5-4"><strong>Deleting your account.</strong> All of your family's data is deleted at once, then the photo and audio files, then the login. One record without content is kept: how many items of each kind there were, the family's AI cost, and the result of the Apple revocation — no name, email address or identifier.</li>
+  <li id="en-5-5"><strong>Diagnostics.</strong> Error reports and usage events contain no content and are deleted automatically by the daily clean-up 12 months after they reach the server; the record kept after an account deletion (5.4) too. Until then, after an account is deleted they are kept, but no longer linked to that account or family. The AI call records (1.4) are part of your family's data and are deleted with it (5.4).</li>
+  <li id="en-5-6"><strong>Temporary links.</strong> To show a photo, play a recording or export, the app asks the server for a temporary link that works for at most one hour. A link obtained before a deletion can still open that file until it expires.</li>
+  <li id="en-5-7"><strong>The providers' own records.</strong> After a deletion, Supabase's own sign-in audit log (which may contain your email address) keeps entries for a while, managed by Supabase. Once daily database backups are switched on, deleted data remains in the backups until they expire, at most 7 days. For OpenAI and Anthropic, see 3.6.</li>
+  <li id="en-5-8"><strong>Copies on your phone.</strong> The app keeps a copy of the photos and lists you have seen on the phone, so they show without a connection. When you sign out with recordings, photos or changes not yet sent, the app first tells you how many, and after you confirm they are deleted from that phone.</li>
+</ol>
+
+<h2>6. How to export</h2>
+<ol>
+  <li id="en-6-1">Settings → Export everything makes a zip on the phone: one file per memory, the photos, the original words of each conversation with every correction and the AI's replies, the recordings still within 30 days, and the list of growth tags; it also says how many recordings have expired. The finished file goes through the system share sheet to the place you choose, such as Files or AirDrop.</li>
+  <li id="en-6-2">The same page can also make a PDF booklet on the phone: each memory starts on its own page with its photos, date, age and your child's words, followed by the list of growth tags; the AI's replies are not in it. You can export everything or pick a date range. The finished file goes through the system share sheet in the same way.</li>
+
+</ol>
+
+<h2>7. How to delete</h2>
+<ol>
+  <li id="en-7-1">One memory or one unfinished conversation: swipe left in the list and delete; it can be restored for 30 days (see 5.3).</li>
+  <li id="en-7-2">Everything: Settings → Delete account and all data, then type your child's nickname to confirm. This cannot be undone and does not appear in Recently deleted. For an account that uses Sign in with Apple, the app asks you to confirm once more in Apple's sheet so we can revoke the Apple authorization; you can also stop using Sign in with Apple for this app yourself in your iPhone's Apple Account settings.</li>
+  <li id="en-7-3">Deleting only the app does not delete the data on the server. To delete it, use Delete account and all data above, or write to us.</li>
+</ol>
+
+<h2>8. Children</h2>
+<ol>
+  <li id="en-8-1">This app is for adults and is not directed at children; children should not use it or sign up themselves. Everything about a child in the app is written by an adult. If you believe a child has created an account, please contact us.</li>
+</ol>
+
+<h2>9. Security</h2>
+<ol>
+  <li id="en-9-1">Everything between the phone and the server travels over encrypted connections (HTTPS). Photos and recordings are stored in private storage and can be read only through temporary links. The AI providers' keys are kept only on the server, never in the app.</li>
+</ol>
+
+<h2>10. Changes to this page</h2>
+<ol>
+  <li id="en-10-1">If what is sent to which AI provider changes, the app shows the AI notice again the next time you open it and asks you to confirm. Other changes update the effective date at the top of this page.</li>
+</ol>
+
+<h2>11. Contact</h2>
+<ol>
+  <li id="en-11-1">For questions, to delete data or for help, write to <span class="email">theselittleyears.app@gmail.com</span>, or use Settings → Feedback in the app.</li>
+</ol>
+</section>
+
+<section id="zh" lang="zh-Hans">
+<h1>隐私政策</h1>
+<p class="meta">These Little Years（中文名暂为「小时候」）· 生效日期：2026-10-16</p>
+<p class="lang"><a href="#en">English</a></p>
+
+<p>These Little Years 是给父母和其他照顾孩子的大人用的 app：你讲一段孩子的事，它帮你整理成回忆，记下成长的变化。这一页说清楚我们收了什么、交给谁处理、留多久、你怎么导出和删除，以及开发者能看到什么、承诺不看什么。</p>
+<p>现在是测试版，通过 Apple 的 TestFlight 发给少数家庭。app 由一位个人开发者开发和运营，下文的「我们」就是这位开发者：Bo Ning。</p>
+
+<h2>1. 我们收集什么</h2>
+<ol>
+  <li id="zh-1-1"><strong>账号。</strong>你用「通过 Apple 登录」时，Apple 给我们一个账号编号和一个邮箱；如果你选了「隐藏邮件地址」，这个邮箱是 Apple 的中转地址。Apple 给的姓名我们不保存。用邮箱验证码登录时，是你填的邮箱。用密码登录只给 Apple 审核用的演示账号。</li>
+  <li id="zh-1-2"><strong>孩子和你。</strong>孩子的小名、生日、她 / 他；你是谁（妈妈、爸爸，或你自己写的称呼）；家里的时区（来自手机设置，用来算「今天」是哪一天）。</li>
+  <li id="zh-1-3"><strong>你记下的内容。</strong>录音和它转出来的文字、你对文字的修改、你打的字、AI 的回应、整理出的回忆和你对回忆的每一次修改、你选的照片和照片里记录的拍摄时间（用来建议回忆的日期）、成长标签，以及家里常用的词（如果有）。</li>
+  <li id="zh-1-4"><strong>不含内容的诊断数据。</strong>app 出错时的错误报告（发出前去掉文字、名字、邮箱、编号、网址和文件路径）；少量使用事件，例如开始和结束录音（段数和秒数）、存了一篇回忆、导出完成、删除或恢复了哪一类东西，带上 app 的版本号；每一次 AI 调用的记录：哪一步、哪个模型、用了多久、用了多少 token、多少钱、成功还是出错，不含你说的话或回忆的内容。只有在你同意 AI 说明、建好孩子资料之后，这些才会从手机发出。</li>
+  <li id="zh-1-5"><strong>你主动发的反馈。</strong>你在「设置 → 反馈」里写的那句话，加上你当时在的页面、app 版本号和最近一次 AI 调用的编号；不会附带你的回忆内容。</li>
+  <li id="zh-1-6"><strong>Apple 的崩溃报告。</strong>app 崩溃时，Apple 可能按你手机上的设置，通过 TestFlight 把崩溃报告转给我们。</li>
+  <li id="zh-1-7"><strong>我们不收集的。</strong>app 只请求麦克风权限，不请求位置、相机、通讯录或广告追踪权限。照片用系统自带的选择器，只上传你选中的那几张，app 不能浏览你的相册。app 里没有广告，也没有任何第三方统计或追踪工具。照片上传前会在手机上重新保存一份，上传的这份不带原照片里的位置信息（GPS）和相机信息；只有拍摄时间在手机上读出，单独保存（见 1.3）。</li>
+</ol>
+
+<h2>2. 用来做什么</h2>
+<ol>
+  <li id="zh-2-1">保存你的内容，让你换手机或重新登录后内容都还在；回应你讲的事、把它整理成回忆、记下成长的变化。</li>
+  <li id="zh-2-2">诊断数据只用来修 bug、看 app 稳不稳定、控制 AI 费用（每个家庭每天最多 30 次 AI 调用）。</li>
+  <li id="zh-2-3">我们不出售你的数据，不用它做广告；没有你的明确同意，不会把你家的内容用在我们的测试或给 AI 的提示词里。</li>
+</ol>
+
+<h2>3. 交给谁处理</h2>
+<p>只有下面这几家服务商经手你的数据，每一家只做写明的那件事。</p>
+<ol>
+  <li id="zh-3-1"><strong>Supabase</strong>：存放全部数据、照片和录音，负责登录，运行我们的服务器程序。服务器在美国。</li>
+  <li id="zh-3-2"><strong>OpenAI</strong>：你的录音会发给 OpenAI 转成文字。为了听准名字，孩子的名字、小名、你是谁，还有家里常用的词，也会一起发过去。</li>
+  <li id="zh-3-3"><strong>Anthropic（Claude）</strong>：你说的和打的字（包括你改过的文字和你给「再写一版」写的一句要求）、你存下的回忆（回应你时是最近十篇的标题和第一句；判断成长变化时是这一篇和已有的成长标签），加上孩子的名字、小名、生日、她 / 他、你是谁和家里常用的词，会发给 Anthropic，用来回应你、整理成回忆、发现成长的变化。</li>
+  <li id="zh-3-4"><strong>Apple</strong>：提供「通过 Apple 登录」，通过 TestFlight 分发测试版和崩溃报告；你删除账号时，我们请 Apple 撤销这个 app 的「通过 Apple 登录」授权。</li>
+  <li id="zh-3-5"><strong>你的照片不会发给任何 AI。</strong>照片只存在 Supabase 上属于你家的私有空间里。</li>
+  <li id="zh-3-6">OpenAI 和 Anthropic 按它们的 API 条款，<strong>不会用这些内容训练模型</strong>，一般在 30 天内删除。我们没有打开任何允许它们用这些数据训练或与他人共享的选项。</li>
+  <li id="zh-3-7">除了上面这几家，我们不把你的数据交给任何人，除非法律要求。</li>
+</ol>
+
+<h2>4. 谁能看到你家的内容</h2>
+<ol>
+  <li id="zh-4-1">只有登录了你这个账号的人。每一条数据都属于一个家庭，服务器在数据库这一层检查，不同的家庭互相看不到，照片和录音文件也一样。</li>
+  <li id="zh-4-2">作为开发者，我在技术上能看到服务器上存的所有内容。我承诺：平时只看数字（次数、费用、出错）；只有在你找我帮忙并且同意，或者法律要求时，才会打开你家的内容；没有你的明确同意，不会把你家的内容用在测试或提示词里；不出售，不分享。</li>
+  <li id="zh-4-3">AI 调用记录里只有上面 1.4 说的那些数字，没有内容。</li>
+</ol>
+
+<h2>5. 留多久</h2>
+<ol>
+  <li id="zh-5-1"><strong>录音。</strong>手机上的录音会一直留到服务器确认收到它的转写，防止丢失。服务器上的录音在转成文字 30 天后自动删除，文字留着。上传了却没有用上的录音，上传 30 天后删除。</li>
+  <li id="zh-5-2"><strong>文字、回忆、照片、成长标签</strong>一直保留，直到你删除。</li>
+  <li id="zh-5-3"><strong>你删除的东西。</strong>删除的回忆和对话，30 天内可以在「设置 → 最近删除」里恢复。删除的东西在 30 天后由每天一次的清理永久删除，连同它们的照片和录音文件。不再属于任何回忆的照片，30 天后删除。</li>
+  <li id="zh-5-4"><strong>删除账号。</strong>你家的全部数据立刻删除，然后删除照片和录音文件，最后删除登录账号。只留下一条不含内容的记录：各类数据有多少条、这个家庭的 AI 费用、Apple 撤销的结果；不含名字、邮箱或任何编号。</li>
+  <li id="zh-5-5"><strong>诊断数据。</strong>错误报告和使用事件不含内容，到达服务器 12 个月后由每天一次的清理自动删除；删除账号后留下的那条记录（5.4）也一样。在那之前，删除账号后它们仍然保留，但不再和你的账号或家庭关联。AI 调用记录（1.4）属于你家的数据，随你家的数据一起删除（5.4）。</li>
+  <li id="zh-5-6"><strong>临时链接。</strong>app 显示照片、播放录音或导出时，会向服务器要一个临时链接，最多一小时有效。删除之前要到的链接，在过期之前仍然能打开那个文件。</li>
+  <li id="zh-5-7"><strong>服务商自己的记录。</strong>删除之后，Supabase 自己的登录审计日志（可能含你的邮箱）还会保留一段时间，由 Supabase 管理。数据库的每日备份打开后，已删除的数据还会在备份里留到备份过期，最多 7 天。OpenAI 和 Anthropic 的保留见 3.6。</li>
+  <li id="zh-5-8"><strong>手机上的副本。</strong>app 会在手机上留一份看过的照片和列表，没有网络也能看。退出登录时，如果还有没发出的录音、照片或修改，app 会先告诉你有几样，你确认后它们会从这台手机删除。</li>
+</ol>
+
+<h2>6. 怎么导出</h2>
+<ol>
+  <li id="zh-6-1">「设置 → 导出全部」在手机上打包一个 zip：每篇回忆一个文件、照片、对话的原话、每一次修改和 AI 的回应、还在 30 天内的录音、成长标签的列表；还会写明有几段录音已经过期。打好的包通过系统的分享面板交给你选的地方，例如「文件」或 AirDrop。</li>
+  <li id="zh-6-2">同一个页面还可以在手机上生成一本 PDF 小册子：每篇回忆一页起，带照片、日期、年龄和孩子说的话，最后是成长标签的列表；不放 AI 的回应。可以导出全部，也可以选一段日期。做好的文件同样通过系统的分享面板交给你选的地方。</li>
+
+</ol>
+
+<h2>7. 怎么删除</h2>
+<ol>
+  <li id="zh-7-1">一篇回忆或一段没说完的对话：在列表里向左滑，删除；30 天内可以恢复（见 5.3）。</li>
+  <li id="zh-7-2">全部：「设置 → 删除账号和全部数据」，输入孩子的小名确认。删除后不能恢复，也不会出现在「最近删除」里。用 Apple 登录的账号，app 会再请你在 Apple 的窗口里确认一次，以便我们撤销 Apple 授权；你也可以在 iPhone 的 Apple 账户设置里自己停止「通过 Apple 登录」。</li>
+  <li id="zh-7-3">只删除 app 不会删除服务器上的数据。要删除，请用上面的「删除账号和全部数据」，或者写信给我们。</li>
+</ol>
+
+<h2>8. 孩子</h2>
+<ol>
+  <li id="zh-8-1">这个 app 给大人用，不面向儿童，孩子不应该自己使用或注册。app 里关于孩子的内容，都是大人写下的。如果你认为有孩子自己建了账号，请联系我们。</li>
+</ol>
+
+<h2>9. 安全</h2>
+<ol>
+  <li id="zh-9-1">手机和服务器之间全部走加密连接（HTTPS）。照片和录音存在私有空间里，只能通过临时链接读取。AI 服务商的密钥只放在服务器上，不在 app 里。</li>
+</ol>
+
+<h2>10. 这一页的变化</h2>
+<ol>
+  <li id="zh-10-1">如果「什么内容发给哪家 AI」有变化，app 会在你下次打开时再显示一次 AI 说明，请你重新确认。其他改动会更新本页顶上的生效日期。</li>
+</ol>
+
+<h2>11. 联系我们</h2>
+<ol>
+  <li id="zh-11-1">有问题、想删除数据或需要帮助，请写信到 <span class="email">theselittleyears.app@gmail.com</span>，或者在 app 里用「设置 → 反馈」。</li>
+</ol>
+</section>
+
+</main>
+</body>
+</html>
