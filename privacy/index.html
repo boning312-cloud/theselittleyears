@@ -37,7 +37,7 @@
 
 <section id="en" lang="en">
 <h1>Privacy Policy</h1>
-<p class="meta">These Little Years · Effective date: 2026-10-16</p>
+<p class="meta">These Little Years · Effective date: 2026-10-21</p>
 <p class="lang"><a href="#zh">中文</a></p>
 
 <p>These Little Years is an app for parents and other adults who look after a child: you tell a moment about your child, and it writes it up as a memory and keeps track of how they grow. This page says what we collect, who processes it, how long it is kept, how you export and delete it, and what the developer can see and promises not to look at.</p>
@@ -52,6 +52,7 @@
   <li id="en-1-5"><strong>Feedback you send.</strong> The sentence you write in Settings → Feedback, together with the screen you were on, the app version and the identifier of the latest AI call; none of your memories are attached.</li>
   <li id="en-1-6"><strong>Apple's crash reports.</strong> When the app crashes, Apple may pass a crash report to us through TestFlight, according to the settings on your phone.</li>
   <li id="en-1-7"><strong>What we do not collect.</strong> The app asks only for microphone access; it does not ask for location, camera, contacts or ad-tracking permission. Photos are chosen with the system's own picker, only the ones you select are uploaded, and the app cannot browse your photo library. There are no ads and no third-party analytics or tracking tools in the app.  Before a photo is uploaded, the app re-saves it on the phone, so the uploaded copy carries none of the original's location data (GPS) or camera details; only the capture time is read on the phone and stored on its own (see 1.3).</li>
+  <li id="en-1-8"><strong>Your family members.</strong> Who belongs to your family (up to six adults), each one's role in it (the person who created it, or someone invited) and who they are to the child; who started each conversation and made each change; and the invite codes the creator makes — stored only in a scrambled form (a hash), never readable again, with when they were made, used or cancelled. Failed attempts to use a code are counted for 24 hours to stop guessing.</li>
 </ol>
 
 <h2>2. What we use it for</h2>
@@ -75,7 +76,7 @@
 
 <h2>4. Who can see your family's content</h2>
 <ol>
-  <li id="en-4-1">Only people signed in to your account. Every record belongs to one family and the server checks this in the database itself, so families cannot see each other's content, photo and audio files included.</li>
+  <li id="en-4-1">The people signed in to an account in your family: you and the family members you invited (or who invited you). Each of them can see everything in the family — conversations, recordings, memories, photos and growth records — and can change or delete memories and growth records and correct transcribed text; the original recordings and words are never changed. Every record belongs to one family and the server checks this in the database itself, so families cannot see each other's content, photo and audio files included. Someone who leaves the family loses access at once (see 5.6 for links obtained before).</li>
   <li id="en-4-2">As the developer, I can technically see everything stored on the server. I promise: day to day I look only at numbers (counts, costs, errors); I open your family's content only when you ask me for help and agree, or when the law requires it; I never use your family's content in tests or AI instructions without your explicit agreement; I never sell or share it.</li>
   <li id="en-4-3">The AI call records hold only the numbers listed in 1.4, no content.</li>
 </ol>
@@ -83,18 +84,19 @@
 <h2>5. How long it is kept</h2>
 <ol>
   <li id="en-5-1"><strong>Recordings.</strong> A recording stays on the phone until the server confirms it has the transcript, so nothing is lost. On the server, a recording is deleted automatically 30 days after it was turned into text; the text stays. A recording that was uploaded but never used is deleted 30 days after upload.</li>
-  <li id="en-5-2"><strong>Text, memories, photos and growth tags</strong> are kept until you delete them.</li>
+  <li id="en-5-2"><strong>Text, memories, photos and growth tags</strong> are kept until you or another adult in your family deletes them.</li>
   <li id="en-5-3"><strong>Things you delete.</strong> Deleted memories and conversations can be restored in Settings → Recently deleted for 30 days. After 30 days, deleted items are removed for good by a daily clean-up, together with their photo and audio files. A photo that no longer belongs to any memory is deleted 30 days later.</li>
   <li id="en-5-4"><strong>Deleting your account.</strong> All of your family's data is deleted at once, then the photo and audio files, then the login. One record without content is kept: how many items of each kind there were, the family's AI cost, and the result of the Apple revocation — no name, email address or identifier.</li>
   <li id="en-5-5"><strong>Diagnostics.</strong> Error reports and usage events contain no content and are deleted automatically by the daily clean-up 12 months after they reach the server; the record kept after an account deletion (5.4) too. Until then, after an account is deleted they are kept, but no longer linked to that account or family. The AI call records (1.4) are part of your family's data and are deleted with it (5.4).</li>
-  <li id="en-5-6"><strong>Temporary links.</strong> To show a photo, play a recording or export, the app asks the server for a temporary link that works for at most one hour. A link obtained before a deletion can still open that file until it expires.</li>
+  <li id="en-5-6"><strong>Temporary links.</strong> To show a photo, play a recording or export, the app asks the server for a temporary link that works for at most one hour. A link obtained before a deletion can still open that file until it expires. This also applies to someone who leaves the family: a link they obtained before leaving works until it expires; no new link is given to them.</li>
   <li id="en-5-7"><strong>The providers' own records.</strong> After a deletion, Supabase's own sign-in audit log (which may contain your email address) keeps entries for a while, managed by Supabase. Once daily database backups are switched on, deleted data remains in the backups until they expire, at most 7 days. For OpenAI and Anthropic, see 3.6.</li>
   <li id="en-5-8"><strong>Copies on your phone.</strong> The app keeps a copy of the photos and lists you have seen on the phone, so they show without a connection. When you sign out with recordings, photos or changes not yet sent, the app first tells you how many, and after you confirm they are deleted from that phone.</li>
+  <li id="en-5-9"><strong>Invites and former members.</strong> An invite code is deleted 30 days after it was used, expired (after 7 days) or cancelled; failed attempts after 24 hours. When someone leaves a family, their login is turned into an anonymous placeholder — no email address, name, password or sign-in method is kept, only an internal identifier — so the memories they made stay correctly attributed; it is deleted together with the family.</li>
 </ol>
 
 <h2>6. How to export</h2>
 <ol>
-  <li id="en-6-1">Settings → Export everything makes a zip on the phone: one file per memory, the photos, the original words of each conversation with every correction and the AI's replies, the recordings still within 30 days, and the list of growth tags; it also says how many recordings have expired. The finished file goes through the system share sheet to the place you choose, such as Files or AirDrop.</li>
+  <li id="en-6-1">Settings → Export everything makes a zip on the phone: one file per memory, the photos, the original words of each conversation with every correction and the AI's replies, and the list of growth tags. Recordings are not exported; the available transcripts are in the conversations. The finished file goes through the system share sheet to the place you choose, such as Files or AirDrop.</li>
   <li id="en-6-2">The same page can also make a PDF booklet on the phone: each memory starts on its own page with its photos, date, age and your child's words, followed by the list of growth tags; the AI's replies are not in it. You can export everything or pick a date range. The finished file goes through the system share sheet in the same way.</li>
 
 </ol>
@@ -102,8 +104,9 @@
 <h2>7. How to delete</h2>
 <ol>
   <li id="en-7-1">One memory or one unfinished conversation: swipe left in the list and delete; it can be restored for 30 days (see 5.3).</li>
-  <li id="en-7-2">Everything: Settings → Delete account and all data, then type your child's nickname to confirm. This cannot be undone and does not appear in Recently deleted. For an account that uses Sign in with Apple, the app asks you to confirm once more in Apple's sheet so we can revoke the Apple authorization; you can also stop using Sign in with Apple for this app yourself in your iPhone's Apple Account settings.</li>
+  <li id="en-7-2">Everything: Settings → Delete account and all data, then type your child's nickname to confirm. This cannot be undone and does not appear in Recently deleted. For an account that uses Sign in with Apple, the app asks you to confirm once more in Apple's sheet so we can revoke the Apple authorization; you can also stop using Sign in with Apple for this app yourself in your iPhone's Apple Account settings. Only the person who created the family can do this; it deletes the family for everyone, and the accounts of every other adult in it (including the placeholders of those who left) are deleted too.</li>
   <li id="en-7-3">Deleting only the app does not delete the data on the server. To delete it, use Delete account and all data above, or write to us.</li>
+  <li id="en-7-4">Leaving a family you were invited to: Settings → Family → Leave this family. Your account is deleted (an Apple account confirms once more so we can revoke the Apple authorization); everything you recorded stays with the family, where its other adults can still see, change or delete it.</li>
 </ol>
 
 <h2>8. Children</h2>
@@ -129,7 +132,7 @@
 
 <section id="zh" lang="zh-Hans">
 <h1>隐私政策</h1>
-<p class="meta">These Little Years（中文名暂为「小时候」）· 生效日期：2026-10-16</p>
+<p class="meta">These Little Years（中文名暂为「小时候」）· 生效日期：2026-10-21</p>
 <p class="lang"><a href="#en">English</a></p>
 
 <p>These Little Years 是给父母和其他照顾孩子的大人用的 app：你讲一段孩子的事，它帮你整理成回忆，记下成长的变化。这一页说清楚我们收了什么、交给谁处理、留多久、你怎么导出和删除，以及开发者能看到什么、承诺不看什么。</p>
@@ -144,6 +147,7 @@
   <li id="zh-1-5"><strong>你主动发的反馈。</strong>你在「设置 → 反馈」里写的那句话，加上你当时在的页面、app 版本号和最近一次 AI 调用的编号；不会附带你的回忆内容。</li>
   <li id="zh-1-6"><strong>Apple 的崩溃报告。</strong>app 崩溃时，Apple 可能按你手机上的设置，通过 TestFlight 把崩溃报告转给我们。</li>
   <li id="zh-1-7"><strong>我们不收集的。</strong>app 只请求麦克风权限，不请求位置、相机、通讯录或广告追踪权限。照片用系统自带的选择器，只上传你选中的那几张，app 不能浏览你的相册。app 里没有广告，也没有任何第三方统计或追踪工具。照片上传前会在手机上重新保存一份，上传的这份不带原照片里的位置信息（GPS）和相机信息；只有拍摄时间在手机上读出，单独保存（见 1.3）。</li>
+  <li id="zh-1-8"><strong>你的家人。</strong>你家里有哪些大人（最多 6 位），每个人在家里的身份（创建这个家的人，或被邀请加入的人）和他们是孩子的谁；每段对话是谁开始的、每处修改是谁做的；还有创建者生成的邀请码——服务器只保存打乱后的形式（哈希），之后谁也读不出来，以及它什么时候生成、用掉或作废。用错邀请码的次数会记 24 小时，用来防止乱猜。</li>
 </ol>
 
 <h2>2. 用来做什么</h2>
@@ -167,7 +171,7 @@
 
 <h2>4. 谁能看到你家的内容</h2>
 <ol>
-  <li id="zh-4-1">只有登录了你这个账号的人。每一条数据都属于一个家庭，服务器在数据库这一层检查，不同的家庭互相看不到，照片和录音文件也一样。</li>
+  <li id="zh-4-1">你家里登录了账号的人：你，以及你邀请来的家人（或邀请你加入的家人）。他们每个人都能看到这个家里的全部内容——对话、录音、回忆、照片和成长记录——也能修改和删除回忆、成长记录，更正转写的文字；原来的录音和原话不会被改动。每一条数据都属于一个家庭，服务器在数据库这一层检查，不同的家庭互相看不到，照片和录音文件也一样。离开这个家的人立刻看不到任何内容（离开之前拿到的链接见 5.6）。</li>
   <li id="zh-4-2">作为开发者，我在技术上能看到服务器上存的所有内容。我承诺：平时只看数字（次数、费用、出错）；只有在你找我帮忙并且同意，或者法律要求时，才会打开你家的内容；没有你的明确同意，不会把你家的内容用在测试或提示词里；不出售，不分享。</li>
   <li id="zh-4-3">AI 调用记录里只有上面 1.4 说的那些数字，没有内容。</li>
 </ol>
@@ -175,18 +179,19 @@
 <h2>5. 留多久</h2>
 <ol>
   <li id="zh-5-1"><strong>录音。</strong>手机上的录音会一直留到服务器确认收到它的转写，防止丢失。服务器上的录音在转成文字 30 天后自动删除，文字留着。上传了却没有用上的录音，上传 30 天后删除。</li>
-  <li id="zh-5-2"><strong>文字、回忆、照片、成长标签</strong>一直保留，直到你删除。</li>
+  <li id="zh-5-2"><strong>文字、回忆、照片、成长标签</strong>一直保留，直到你或家里的其他人删除。</li>
   <li id="zh-5-3"><strong>你删除的东西。</strong>删除的回忆和对话，30 天内可以在「设置 → 最近删除」里恢复。删除的东西在 30 天后由每天一次的清理永久删除，连同它们的照片和录音文件。不再属于任何回忆的照片，30 天后删除。</li>
   <li id="zh-5-4"><strong>删除账号。</strong>你家的全部数据立刻删除，然后删除照片和录音文件，最后删除登录账号。只留下一条不含内容的记录：各类数据有多少条、这个家庭的 AI 费用、Apple 撤销的结果；不含名字、邮箱或任何编号。</li>
   <li id="zh-5-5"><strong>诊断数据。</strong>错误报告和使用事件不含内容，到达服务器 12 个月后由每天一次的清理自动删除；删除账号后留下的那条记录（5.4）也一样。在那之前，删除账号后它们仍然保留，但不再和你的账号或家庭关联。AI 调用记录（1.4）属于你家的数据，随你家的数据一起删除（5.4）。</li>
-  <li id="zh-5-6"><strong>临时链接。</strong>app 显示照片、播放录音或导出时，会向服务器要一个临时链接，最多一小时有效。删除之前要到的链接，在过期之前仍然能打开那个文件。</li>
+  <li id="zh-5-6"><strong>临时链接。</strong>app 显示照片、播放录音或导出时，会向服务器要一个临时链接，最多一小时有效。删除之前要到的链接，在过期之前仍然能打开那个文件。离开这个家的人也是这样：离开之前拿到的链接在过期之前还能用，之后不会再给他新的链接。</li>
   <li id="zh-5-7"><strong>服务商自己的记录。</strong>删除之后，Supabase 自己的登录审计日志（可能含你的邮箱）还会保留一段时间，由 Supabase 管理。数据库的每日备份打开后，已删除的数据还会在备份里留到备份过期，最多 7 天。OpenAI 和 Anthropic 的保留见 3.6。</li>
   <li id="zh-5-8"><strong>手机上的副本。</strong>app 会在手机上留一份看过的照片和列表，没有网络也能看。退出登录时，如果还有没发出的录音、照片或修改，app 会先告诉你有几样，你确认后它们会从这台手机删除。</li>
+  <li id="zh-5-9"><strong>邀请码和离开的家人。</strong>邀请码在用掉、过期（7 天）或作废 30 天后删除；用错的记录 24 小时后删除。有人离开一个家时，他的登录账号变成一个匿名的占位记录——不保留邮箱、名字、密码或登录方式，只留一个内部编号——这样他记下的回忆仍然标得清楚是谁记的；这个记录随这个家一起删除。</li>
 </ol>
 
 <h2>6. 怎么导出</h2>
 <ol>
-  <li id="zh-6-1">「设置 → 导出全部」在手机上打包一个 zip：每篇回忆一个文件、照片、对话的原话、每一次修改和 AI 的回应、还在 30 天内的录音、成长标签的列表；还会写明有几段录音已经过期。打好的包通过系统的分享面板交给你选的地方，例如「文件」或 AirDrop。</li>
+  <li id="zh-6-1">「设置 → 导出全部」在手机上打包一个 zip：每篇回忆一个文件、照片、对话的原话、每一次修改和 AI 的回应、成长标签的列表。录音不导出，已有的转写文字都在对话里。打好的包通过系统的分享面板交给你选的地方，例如「文件」或 AirDrop。</li>
   <li id="zh-6-2">同一个页面还可以在手机上生成一本 PDF 小册子：每篇回忆一页起，带照片、日期、年龄和孩子说的话，最后是成长标签的列表；不放 AI 的回应。可以导出全部，也可以选一段日期。做好的文件同样通过系统的分享面板交给你选的地方。</li>
 
 </ol>
@@ -194,8 +199,9 @@
 <h2>7. 怎么删除</h2>
 <ol>
   <li id="zh-7-1">一篇回忆或一段没说完的对话：在列表里向左滑，删除；30 天内可以恢复（见 5.3）。</li>
-  <li id="zh-7-2">全部：「设置 → 删除账号和全部数据」，输入孩子的小名确认。删除后不能恢复，也不会出现在「最近删除」里。用 Apple 登录的账号，app 会再请你在 Apple 的窗口里确认一次，以便我们撤销 Apple 授权；你也可以在 iPhone 的 Apple 账户设置里自己停止「通过 Apple 登录」。</li>
+  <li id="zh-7-2">全部：「设置 → 删除账号和全部数据」，输入孩子的小名确认。删除后不能恢复，也不会出现在「最近删除」里。用 Apple 登录的账号，app 会再请你在 Apple 的窗口里确认一次，以便我们撤销 Apple 授权；你也可以在 iPhone 的 Apple 账户设置里自己停止「通过 Apple 登录」。只有创建这个家的人能这样做；它会为所有人删除这个家，家里其他每个大人的账号（包括离开的人留下的匿名记录）也会一起删除。</li>
   <li id="zh-7-3">只删除 app 不会删除服务器上的数据。要删除，请用上面的「删除账号和全部数据」，或者写信给我们。</li>
+  <li id="zh-7-4">离开你被邀请加入的家：「设置 → 家人 → 离开这个家」。你的账号会删除（用 Apple 登录的账号会再确认一次，以便我们撤销 Apple 授权）；你记下的内容都留在这个家里，家里其他大人仍然能看到、修改或删除。</li>
 </ol>
 
 <h2>8. 孩子</h2>
