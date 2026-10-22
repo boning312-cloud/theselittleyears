@@ -1,0 +1,135 @@
+<!doctype html>
+<!-- T-051 SPIKE (branch t-051-chatgpt-spike, never merged; a copy is published on GitHub Pages for the T-051 dev test). The consent page of the Supabase OAuth 2.1
+     server: Supabase sends the browser here with ?authorization_id=…; the page signs the user in (Sign in with Apple on
+     the web; email + password only when config.js allows it, for the local rehearsal), shows who asks, checks the user
+     has a family, and approves / denies through supabase-js `auth.oauth.*`. config.js (git-ignored) sets
+     window.CONNECT_CONFIG = { supabaseUrl, publishableKey, allowPassword }. -->
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<title>连接 These Little Years</title>
+<style>
+  :root { --fg:#2b2622; --muted:#7a6f66; --bg:#fbf7f2; --card:#fff; --line:#e8dfd5; --accent:#b4562d; --warn:#a4532b; }
+  @media (prefers-color-scheme: dark) { :root { --fg:#f1ebe4; --muted:#b3a89d; --bg:#1f1b18; --card:#2a2521; --line:#3a3430; --accent:#e39a74; --warn:#e39a74; } }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--fg); font:16px/1.5 -apple-system, system-ui, sans-serif; }
+  main { max-width:420px; margin:0 auto; padding:32px 16px; }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:20px; }
+  h1 { font-size:20px; margin:0 0 8px; }
+  p { margin:8px 0; } .muted { color:var(--muted); font-size:14px; } .warn { color:var(--warn); }
+  button { width:100%; font:inherit; padding:12px; border-radius:10px; border:1px solid var(--line); background:transparent; color:var(--fg); margin-top:10px; cursor:pointer; }
+  button.primary { background:var(--accent); border-color:var(--accent); color:#fff; }
+  button.apple { background:#000; color:#fff; border-color:#000; }
+  input { width:100%; font:inherit; padding:10px; border-radius:8px; border:1px solid var(--line); background:transparent; color:var(--fg); margin-top:8px; }
+  [hidden] { display:none !important; }
+</style>
+</head>
+<body>
+<main>
+  <div class="card">
+    <h1>连接 These Little Years</h1>
+    <p id="status" class="muted">正在读取…</p>
+
+    <section id="signin" hidden>
+      <p>用你在 App 里用的<strong>同一个 Apple ID</strong> 登录。</p>
+      <button class="apple" id="apple">用 Apple 登录</button>
+      <form id="pw" hidden>
+        <p class="muted">本地测试：邮箱 + 密码</p>
+        <input id="email" type="email" autocomplete="username" placeholder="邮箱">
+        <input id="password" type="password" autocomplete="current-password" placeholder="密码">
+        <button type="submit">登录</button>
+      </form>
+    </section>
+
+    <section id="consent" hidden>
+      <p><strong id="client"></strong> 想连接你的 These Little Years 账号：</p>
+      <p class="muted">它能做的：在你说「保存」时，把一篇回忆和照片存进你的家庭。<br>你可以随时在 App 设置里断开。</p>
+      <p class="muted">账号：<span id="who"></span></p>
+      <p id="nofamily" class="warn" hidden>这个账号还没有家庭。请先在 App 里建好家庭，再回到 ChatGPT 连接。</p>
+      <button class="primary" id="allow">允许</button>
+      <button id="deny">不允许</button>
+      <button id="switch">换一个账号</button>
+    </section>
+  </div>
+</main>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.117.0/dist/umd/supabase.js"></script>
+<script src="config.js"></script>
+<script>
+(function () {
+  var cfg = window.CONNECT_CONFIG || {};
+  var $ = function (id) { return document.getElementById(id); };
+  var status = function (t, warn) { $("status").textContent = t; $("status").className = warn ? "warn" : "muted"; };
+  var authorizationId = new URLSearchParams(location.search).get("authorization_id");
+  if (!cfg.supabaseUrl || !cfg.publishableKey) { status("页面没有配置。", true); return; }
+  if (!authorizationId) { status("链接不完整。请回到 ChatGPT 重新连接。", true); return; }
+  var sb = window.supabase.createClient(cfg.supabaseUrl, cfg.publishableKey, {
+    auth: { persistSession: true, autoRefreshToken: true, detectSessionInUrl: true, flowType: "pkce" }
+  });
+
+  function showSignIn() {
+    status("");
+    $("signin").hidden = false;
+    $("pw").hidden = !cfg.allowPassword;
+  }
+
+  async function showConsent(session) {
+    $("signin").hidden = true;
+    var r = await sb.auth.oauth.getAuthorizationDetails(authorizationId);
+    if (r.error) { status("这个连接请求已失效（" + r.error.message + "）。请回到 ChatGPT 重试。", true); return; }
+    if (!("authorization_id" in r.data)) {
+      // this account already allowed this client: Supabase approved again by itself. Say who, so a wrong account can switch.
+      status("");
+      $("client").textContent = "ChatGPT";
+      $("who").textContent = (session.user.email || session.user.id.slice(0, 8)) + "（已经允许过）";
+      $("nofamily").hidden = true; $("deny").hidden = true; $("allow").hidden = false; $("allow").textContent = "继续";
+      $("allow").onclick = function () { location.replace(r.data.redirect_url); };
+      $("consent").hidden = false;
+      return;
+    }
+    var fam = await sb.from("family_members").select("family_id").limit(2);
+    var hasFamily = !fam.error && fam.data.length === 1;
+    status("");
+    $("client").textContent = (r.data.client && r.data.client.name) || "一个应用";
+    $("who").textContent = (session.user.email || session.user.id.slice(0, 8));
+    $("nofamily").hidden = hasFamily;
+    $("deny").hidden = false;
+    $("allow").textContent = "允许";
+    $("allow").onclick = function () { decide(true); };
+    // test mode (allowPassword): the synthetic test user has no family; let the probe connect anyway
+    $("allow").hidden = !hasFamily && !cfg.allowPassword;
+    $("consent").hidden = false;
+  }
+
+  async function decide(approve) {
+    $("allow").disabled = $("deny").disabled = true;
+    var r = approve
+      ? await sb.auth.oauth.approveAuthorization(authorizationId, { skipBrowserRedirect: true })
+      : await sb.auth.oauth.denyAuthorization(authorizationId, { skipBrowserRedirect: true });
+    if (r.error) { status("没成功（" + r.error.message + "）。请回到 ChatGPT 重试。", true); return; }
+    status(approve ? "已允许，正在回到 ChatGPT…" : "已拒绝，正在回到 ChatGPT…");
+    location.replace(r.data.redirect_url);
+  }
+
+  $("apple").onclick = function () {
+    // back to this exact page (with authorization_id) after Apple; the URL must be in the project's redirect allow-list
+    sb.auth.signInWithOAuth({ provider: "apple", options: { redirectTo: location.href } });
+  };
+  $("pw").onsubmit = async function (e) {
+    e.preventDefault();
+    var r = await sb.auth.signInWithPassword({ email: $("email").value, password: $("password").value });
+    if (r.error) { status("邮箱或密码不对。", true); return; }
+    showConsent(r.data.session);
+  };
+  $("allow").onclick = function () { decide(true); };
+  $("deny").onclick = function () { decide(false); };
+  $("switch").onclick = async function () { await sb.auth.signOut({ scope: "local" }); $("consent").hidden = true; showSignIn(); };
+
+  sb.auth.getSession().then(function (r) {
+    if (r.data.session) showConsent(r.data.session); else showSignIn();
+  });
+})();
+</script>
+</body>
+</html>
