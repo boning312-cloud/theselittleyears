@@ -52,6 +52,12 @@
       <button id="deny">不允许</button>
       <button id="switch">换一个账号</button>
     </section>
+    <section id="whoami" hidden>
+      <p>测试：网页 Apple 登录拿到的身份</p>
+      <p class="muted">Apple 用户编号：<br><strong id="whoami-apple"></strong></p>
+      <p class="muted">dev 账号编号：<span id="whoami-user"></span></p>
+      <button id="whoami-out">退出这个测试登录</button>
+    </section>
   </div>
 </main>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.117.0/dist/umd/supabase.js"></script>
@@ -63,10 +69,29 @@
   var status = function (t, warn) { $("status").textContent = t; $("status").className = warn ? "warn" : "muted"; };
   var authorizationId = new URLSearchParams(location.search).get("authorization_id");
   if (!cfg.supabaseUrl || !cfg.publishableKey) { status("页面没有配置。", true); return; }
-  if (!authorizationId) { status("链接不完整。请回到 ChatGPT 重新连接。", true); return; }
   var sb = window.supabase.createClient(cfg.supabaseUrl, cfg.publishableKey, {
     auth: { persistSession: true, autoRefreshToken: true, detectSessionInUrl: true, flowType: "pkce" }
   });
+  // T-051 step 9 (?whoami=1): sign in with Apple on the web only and show the Apple user id, so Boning can compare it
+  // with his own prod account. No ChatGPT, no authorization request, nothing approved.
+  if (new URLSearchParams(location.search).get("whoami") === "1") {
+    var show = function (session) {
+      var apple = (session.user.identities || []).filter(function (i) { return i.provider === "apple"; })[0];
+      status("");
+      $("signin").hidden = true;
+      $("consent").hidden = true;
+      $("whoami").hidden = false;
+      $("whoami-apple").textContent = apple ? apple.id : "（这个账号没有 Apple 身份）";
+      $("whoami-user").textContent = session.user.id;
+    };
+    $("apple").onclick = function () { sb.auth.signInWithOAuth({ provider: "apple", options: { redirectTo: location.href } }); };
+    $("whoami-out").onclick = async function () { await sb.auth.signOut({ scope: "local" }); location.reload(); };
+    sb.auth.getSession().then(function (r) {
+      if (r.data.session) show(r.data.session); else { status(""); $("signin").hidden = false; $("pw").hidden = true; }
+    });
+    return;
+  }
+  if (!authorizationId) { status("链接不完整。请回到 ChatGPT 重新连接。", true); return; }
 
   function showSignIn() {
     status("");
