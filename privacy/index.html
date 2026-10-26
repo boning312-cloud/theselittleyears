@@ -1,6 +1,12 @@
 <!doctype html>
 <!--
-  Approved by Boning (D-88, D-90). Source of truth for the public page; publish steps in docs/privacy-publish.md.
+  Approved by Boning (D-88, D-90; §8 「从 ChatGPT 保存」 and its related lines: D-121). Source of truth for the public page;
+  publish steps in docs/privacy-publish.md. This version is published only on the day the ChatGPT connector reaches prod
+  (D-121 Q2).
+  T-054 (D-131–D-133, D-137; one AI company): §3.3 / §3.6 / §5.7 / §8.3 name OpenAI instead of Anthropic, §5.9 gains the
+  former-members sentence (D-137). TEXT PENDING BONING'S APPROVAL (docs/runbooks/t054-consent-privacy-draft.md (b)); published
+  with the T-054 cutover (rollout plan §5 C7), not before.
+  TODO: set the effective date (both languages, now the placeholder 2026-10-25) on the prod publish day.
   This page loads nothing from anywhere.
 -->
 <html lang="en">
@@ -37,7 +43,7 @@
 
 <section id="en" lang="en">
 <h1>Privacy Policy</h1>
-<p class="meta">These Little Years · Effective date: 2026-10-21</p>
+<p class="meta">These Little Years · Effective date: 2026-10-25</p>
 <p class="lang"><a href="#zh">中文</a></p>
 
 <p>These Little Years is an app for parents and other adults who look after a child: you tell a moment about your child, and it writes it up as a memory and keeps track of how they grow. This page says what we collect, who processes it, how long it is kept, how you export and delete it, and what the developer can see and promises not to look at.</p>
@@ -45,13 +51,13 @@
 
 <h2>1. What we collect</h2>
 <ol>
-  <li id="en-1-1"><strong>Your account.</strong> When you use Sign in with Apple, Apple gives us an account identifier and an email address; if you chose "Hide My Email", that address is Apple's relay address. We do not store the name Apple provides. When you sign in with an email code, it is the email address you enter. Password sign-in exists only for the demo account used by Apple's App Review.</li>
+  <li id="en-1-1"><strong>Your account.</strong> When you use Sign in with Apple, Apple gives us an account identifier and an email address; if you chose "Hide My Email", that address is Apple's relay address. We do not store the name Apple provides. When you sign in with an email code, it is the email address you enter. Password sign-in exists only for the demo account used by Apple's App Review. When you connect ChatGPT, you sign in with Apple on our Allow web page, with the same account; the connection's own record is in 8.6.</li>
   <li id="en-1-2"><strong>Your child and you.</strong> Your child's nickname, birthday and she / he; who you are (mom, dad, or your own word); your family's time zone (from the phone's settings, used to work out which day "today" is).</li>
-  <li id="en-1-3"><strong>What you record.</strong> Recordings and the text transcribed from them, your corrections to that text, what you type, the AI's replies, the memories written up and every change you make to them, the photos you choose and the capture time stored in them (used to suggest a memory's date), growth tags, and the words your family often uses (if any).</li>
-  <li id="en-1-4"><strong>Diagnostics without content.</strong> Error reports when something goes wrong in the app (text, names, email addresses, identifiers, web addresses and file paths are removed before sending); a few usage events, such as starting and finishing a recording (number of segments and seconds), saving a memory, finishing an export, or deleting or restoring a kind of item, with the app's version number; and a record of each AI call: which step, which model, how long it took, how many tokens, the cost, and whether it succeeded — never what you said or what a memory contains. None of this leaves the phone until you have agreed to the AI notice and set up your child's profile.</li>
+  <li id="en-1-3"><strong>What you record.</strong> Recordings and the text transcribed from them, your corrections to that text, what you type, the AI's replies, the memories written up and every change you make to them, the photos you choose and the capture time stored in them (used to suggest a memory's date), growth tags, and the words your family often uses (if any). Memories and photos saved from ChatGPT are part of this too (see 8.3).</li>
+  <li id="en-1-4"><strong>Diagnostics without content.</strong> Error reports when something goes wrong in the app (text, names, email addresses, identifiers, web addresses and file paths are removed before sending); a few usage events, such as starting and finishing a recording (number of segments and seconds), saving a memory (for one from ChatGPT: the number of photos and whether it has a tag), finishing an export, or deleting or restoring a kind of item, with the app's version number; and a record of each AI call: which step, which model, how long it took, how many tokens, the cost, and whether it succeeded — never what you said or what a memory contains. When you save from ChatGPT, the server notes for each request only the result, how long it took, the number, size, format and pixel count of the photos and which website they came from — no content. None of this leaves the phone until you have agreed to the AI notice and set up your child's profile.</li>
   <li id="en-1-5"><strong>Feedback you send.</strong> The sentence you write in Settings → Feedback, together with the screen you were on, the app version and the identifier of the latest AI call; none of your memories are attached.</li>
   <li id="en-1-6"><strong>Apple's crash reports.</strong> When the app crashes, Apple may pass a crash report to us through TestFlight, according to the settings on your phone.</li>
-  <li id="en-1-7"><strong>What we do not collect.</strong> The app asks only for microphone access; it does not ask for location, camera, contacts or ad-tracking permission. Photos are chosen with the system's own picker, only the ones you select are uploaded, and the app cannot browse your photo library. There are no ads and no third-party analytics or tracking tools in the app.  Before a photo is uploaded, the app re-saves it on the phone, so the uploaded copy carries none of the original's location data (GPS) or camera details; only the capture time is read on the phone and stored on its own (see 1.3).</li>
+  <li id="en-1-7"><strong>What we do not collect.</strong> The app asks only for microphone access; it does not ask for location, camera, contacts or ad-tracking permission. Photos are chosen with the system's own picker, only the ones you select are uploaded, and the app cannot browse your photo library. There are no ads and no third-party analytics or tracking tools in the app.  Before a photo is uploaded, the app re-saves it on the phone, so the uploaded copy carries none of the original's location data (GPS) or camera details; only the capture time is read on the phone and stored on its own (see 1.3). Photos saved from ChatGPT do not pass through the phone; they are re-saved the same way on our server, without that information (see 8.5).</li>
   <li id="en-1-8"><strong>Your family members.</strong> Who belongs to your family (up to six adults), each one's role in it (the person who created it, or someone invited) and who they are to the child; who started each conversation and made each change; and the invite codes the creator makes — stored only in a scrambled form (a hash), never readable again, with when they were made, used or cancelled. Failed attempts to use a code are counted for 24 hours to stop guessing.</li>
 </ol>
 
@@ -66,17 +72,19 @@
 <p>Only these service providers handle your data, each for the purpose stated.</p>
 <ol>
   <li id="en-3-1"><strong>Supabase</strong> stores all data, photos and recordings, handles sign-in, and runs our server code. The servers are in the United States.</li>
-  <li id="en-3-2"><strong>OpenAI</strong>: your recordings are sent to OpenAI to be turned into text. To get names right, your child's name and nickname, who you are, and the words your family often uses are sent along too.</li>
-  <li id="en-3-3"><strong>Anthropic (Claude)</strong>: what you say and type (including your corrections and the one-line request you may write for "rewrite"), the memories you save (the titles and first sentences of the latest ten when replying to you; the memory itself and the existing growth tags when noticing a change), plus your child's name, nickname, birthday, she / he, who you are and your family's words, are sent to Anthropic to reply to you, write it up as memories, and notice how your child is growing.</li>
+  <li id="en-3-2"><strong>OpenAI</strong>: your recordings are sent to OpenAI to be turned into text. To get names right, your child's name and nickname, who you are, and the words your family often uses are sent along too. This is our own use of OpenAI; for your own use of ChatGPT, see 8.2.</li>
+  <li id="en-3-3"><strong>OpenAI</strong> (replies and memories): what you say and type (including your corrections and the one-line request you may write for "rewrite"), the memories you save (the titles and first sentences of the latest ten when replying to you; the memory itself and the existing growth tags when noticing a change), plus your child's name, nickname, birthday, she / he, who you are and your family's words, are sent to OpenAI to reply to you, write it up as memories, and notice how your child is growing.</li>
   <li id="en-3-4"><strong>Apple</strong> provides Sign in with Apple and distributes the test version and crash reports through TestFlight; when you delete your account, we ask Apple to revoke this app's Sign in with Apple authorization.</li>
-  <li id="en-3-5"><strong>Your photos are never sent to any AI.</strong> They are stored only in your family's private space on Supabase.</li>
-  <li id="en-3-6">Under their API terms, OpenAI and Anthropic <strong>do not use this content to train their models</strong> and generally delete it within 30 days. We have not turned on any option that would let them train on it or share it.</li>
-  <li id="en-3-7">Apart from these providers, we do not give your data to anyone, unless the law requires it.</li>
+  <li id="en-3-5"><strong>We never send your photos to any AI.</strong> They are stored only in your family's private space on Supabase. Photos you attach in ChatGPT have already been seen by OpenAI in your ChatGPT (see 8.2).</li>
+  <li id="en-3-6">Under its API terms, OpenAI <strong>does not use this content to train its models</strong> and generally deletes it within 30 days. We have not turned on any option that would let it train on it or share it. This covers what we send it, not what you tell ChatGPT yourself (see 8.2).</li>
+  <li id="en-3-7"><strong>Cloudflare</strong> serves the Allow web page you open to connect ChatGPT (see 8.1). Like any website host, it sees your IP address and browser details when you open the page. The page is a set of fixed files: your sign-in and your Allow go from your browser to Supabase, not through Cloudflare.</li>
+  <li id="en-3-8">This privacy page itself is hosted on <strong>GitHub Pages</strong>; like any website host, GitHub sees your IP address and browser details when you open it.</li>
+  <li id="en-3-9">Apart from these providers, we do not give your data to anyone, unless the law requires it.</li>
 </ol>
 
 <h2>4. Who can see your family's content</h2>
 <ol>
-  <li id="en-4-1">The people signed in to an account in your family: you and the family members you invited (or who invited you). Each of them can see everything in the family — conversations, recordings, memories, photos and growth records — and can change or delete memories and growth records and correct transcribed text; the original recordings and words are never changed. Every record belongs to one family and the server checks this in the database itself, so families cannot see each other's content, photo and audio files included. Someone who leaves the family loses access at once (see 5.6 for links obtained before).</li>
+  <li id="en-4-1">The people signed in to an account in your family: you and the family members you invited (or who invited you). Each of them can see everything in the family — conversations, recordings, memories, photos and growth records — and can change or delete memories and growth records and correct transcribed text; the original recordings and words are never changed. Every record belongs to one family and the server checks this in the database itself, so families cannot see each other's content, photo and audio files included. Someone who leaves the family loses access at once (see 5.6 for links obtained before). A ChatGPT connection you allow can only add memories to your family and read what 8.4 lists, nothing else.</li>
   <li id="en-4-2">As the developer, I can technically see everything stored on the server. I promise: day to day I look only at numbers (counts, costs, errors); I open your family's content only when you ask me for help and agree, or when the law requires it; I never use your family's content in tests or AI instructions without your explicit agreement; I never sell or share it.</li>
   <li id="en-4-3">The AI call records hold only the numbers listed in 1.4, no content.</li>
 </ol>
@@ -85,13 +93,13 @@
 <ol>
   <li id="en-5-1"><strong>Recordings.</strong> A recording stays on the phone until the server confirms it has the transcript, so nothing is lost. On the server, a recording is deleted automatically 30 days after it was turned into text; the text stays. A recording that was uploaded but never used is deleted 30 days after upload.</li>
   <li id="en-5-2"><strong>Text, memories, photos and growth tags</strong> are kept until you or another adult in your family deletes them.</li>
-  <li id="en-5-3"><strong>Things you delete.</strong> Deleted memories and conversations can be restored in Settings → Recently deleted for 30 days. After 30 days, deleted items are removed for good by a daily clean-up, together with their photo and audio files. A photo that no longer belongs to any memory is deleted 30 days later.</li>
-  <li id="en-5-4"><strong>Deleting your account.</strong> All of your family's data is deleted at once, then the photo and audio files, then the login. One record without content is kept: how many items of each kind there were, the family's AI cost, and the result of the Apple revocation — no name, email address or identifier.</li>
+  <li id="en-5-3"><strong>Things you delete.</strong> Deleted memories and conversations can be restored in Settings → Recently deleted for 30 days. After 30 days, deleted items are removed for good by a daily clean-up, together with their photo and audio files. A photo that no longer belongs to any memory is deleted 30 days later. When a memory saved from ChatGPT is removed for good, the content in its save receipt is erased too (see 8.7).</li>
+  <li id="en-5-4"><strong>Deleting your account.</strong> All of your family's data is deleted at once, then the photo and audio files, then the login. Any ChatGPT connection ends at the same time. One record without content is kept: how many items of each kind there were, the family's AI cost, and the result of the Apple revocation — no name, email address or identifier.</li>
   <li id="en-5-5"><strong>Diagnostics.</strong> Error reports and usage events contain no content and are deleted automatically by the daily clean-up 12 months after they reach the server; the record kept after an account deletion (5.4) too. Until then, after an account is deleted they are kept, but no longer linked to that account or family. The AI call records (1.4) are part of your family's data and are deleted with it (5.4).</li>
-  <li id="en-5-6"><strong>Temporary links.</strong> To show a photo, play a recording or export, the app asks the server for a temporary link that works for at most one hour. A link obtained before a deletion can still open that file until it expires. This also applies to someone who leaves the family: a link they obtained before leaving works until it expires; no new link is given to them.</li>
-  <li id="en-5-7"><strong>The providers' own records.</strong> After a deletion, Supabase's own sign-in audit log (which may contain your email address) keeps entries for a while, managed by Supabase. Once daily database backups are switched on, deleted data remains in the backups until they expire, at most 7 days. For OpenAI and Anthropic, see 3.6.</li>
+  <li id="en-5-6"><strong>Temporary links.</strong> To show a photo, play a recording or export, the app asks the server for a temporary link that works for at most one hour. A link obtained before a deletion can still open that file until it expires. This also applies to someone who leaves the family: a link they obtained before leaving works until it expires; no new link is given to them. The small photos on the Saved card in ChatGPT use such links too, valid for at most one hour.</li>
+  <li id="en-5-7"><strong>The providers' own records.</strong> After a deletion, Supabase's own sign-in audit log (which may contain your email address) keeps entries for a while, managed by Supabase. Once daily database backups are switched on, deleted data remains in the backups until they expire, at most 7 days. For OpenAI, see 3.6. Your ChatGPT conversations and the Saved card are kept by OpenAI according to your ChatGPT settings (see 8.2).</li>
   <li id="en-5-8"><strong>Copies on your phone.</strong> The app keeps a copy of the photos and lists you have seen on the phone, so they show without a connection. When you sign out with recordings, photos or changes not yet sent, the app first tells you how many, and after you confirm they are deleted from that phone.</li>
-  <li id="en-5-9"><strong>Invites and former members.</strong> An invite code is deleted 30 days after it was used, expired (after 7 days) or cancelled; failed attempts after 24 hours. When someone leaves a family, their login is turned into an anonymous placeholder — no email address, name, password or sign-in method is kept, only an internal identifier — so the memories they made stay correctly attributed; it is deleted together with the family.</li>
+  <li id="en-5-9"><strong>Invites and former members.</strong> An invite code is deleted 30 days after it was used, expired (after 7 days) or cancelled; failed attempts after 24 hours. When someone leaves a family, their login is turned into an anonymous placeholder — no email address, name, password or sign-in method is kept, only an internal identifier — so the memories they made stay correctly attributed; it is deleted together with the family. What a former member left in the family belongs to the family and is handled under the consent of the family's current members, including what is sent to OpenAI (see 3).</li>
 </ol>
 
 <h2>6. How to export</h2>
@@ -107,32 +115,47 @@
   <li id="en-7-2">Everything: Settings → Delete account and all data, then type your child's nickname to confirm. This cannot be undone and does not appear in Recently deleted. For an account that uses Sign in with Apple, the app asks you to confirm once more in Apple's sheet so we can revoke the Apple authorization; you can also stop using Sign in with Apple for this app yourself in your iPhone's Apple Account settings. Only the person who created the family can do this; it deletes the family for everyone, and the accounts of every other adult in it (including the placeholders of those who left) are deleted too.</li>
   <li id="en-7-3">Deleting only the app does not delete the data on the server. To delete it, use Delete account and all data above, or write to us.</li>
   <li id="en-7-4">Leaving a family you were invited to: Settings → Family → Leave this family. Your account is deleted (an Apple account confirms once more so we can revoke the Apple authorization); everything you recorded stays with the family, where its other adults can still see, change or delete it.</li>
+  <li id="en-7-5">Disconnecting ChatGPT: see 8.10.</li>
 </ol>
 
-<h2>8. Children</h2>
+<h2>8. Saving from ChatGPT</h2>
 <ol>
-  <li id="en-8-1">This app is for adults and is not directed at children; children should not use it or sign up themselves. Everything about a child in the app is written by an adult. If you believe a child has created an account, please contact us.</li>
+  <li id="en-8-1"><strong>Connecting.</strong> You can add These Little Years to your own ChatGPT and say "save this as a diary" in a conversation to store a memory in your family. To connect, ChatGPT opens our "Allow" page: you sign in with the same Apple ID you use in the app and press Allow. Only an account that already has a family in the app and has agreed to the AI notice can connect. Only press Allow if you just pressed connect in your own ChatGPT. If someone sends you a link to this page, do not allow it.</li>
+  <li id="en-8-2"><strong>ChatGPT is yours, handled by OpenAI.</strong> What you tell ChatGPT, the photos you attach there and what ChatGPT writes are handled by OpenAI under your own ChatGPT account, the terms OpenAI gives you and your settings (including whether they may be used for training). This is outside the promises on this page, and 3.6 does not apply; see OpenAI's own privacy information and your ChatGPT settings. The diary is written by ChatGPT with its own model. When you save from ChatGPT, we make no AI call of our own.</li>
+  <li id="en-8-3"><strong>What we receive.</strong> Only when you ask it to save does ChatGPT send us the diary it wrote: the title, the text, the date, your child's words in quotes, at most one growth tag with its step, and the photos you attached for it (up to 6). We do not receive or store the ChatGPT conversation, your own words or any recording. The memory is stored in your family, marked "From ChatGPT"; after that it is like any other memory and can be seen, changed, deleted and exported (see 4, 5, 6, 7). Later, when you record something new in the app, the titles and first sentences of your most recent memories (including those saved from ChatGPT) are sent to OpenAI as background for writing the reply (see 3.3). Only this text is sent — no recording, no photo; a memory saved from ChatGPT has no recording.</li>
+  <li id="en-8-4"><strong>What ChatGPT can read from us.</strong> To choose a tag, ChatGPT can read from us: today's date in your family's time zone, she / he, and your child's growth tags — for each tag, its area (language, motor, cognition, social-emotional, self-care, or sleep, food &amp; health), its name, an internal number and how many steps it has. It cannot read your other memories, your conversations, recordings or photos. We do not send your child's nickname, name or birthday to OpenAI; ChatGPT calls your child only what you called them in the conversation, otherwise she / he. After a save, ChatGPT shows a "Saved" card with the saved title, text, date, tag and small versions of the photos (the links to them work for at most one hour). The card stays in your ChatGPT conversation, handled by OpenAI; deleting the memory in the app does not remove it from ChatGPT.</li>
+  <li id="en-8-5"><strong>Photos.</strong> We fetch each photo from the OpenAI file address ChatGPT gives us and re-save it on our server (a JPEG at most 2048 pixels on the long side), removing location (GPS), camera details and every other kind of embedded information; only the capture time is read first and stored on its own (as in 1.3). We never send photos to any AI. Photos you attach in ChatGPT have already been seen by OpenAI in your ChatGPT (see 8.2).</li>
+  <li id="en-8-6"><strong>The connection.</strong> We keep a record of it: which account, which app was connected (ChatGPT), when, which version of the Allow page text you agreed to, and when it was last used. ChatGPT only gets random keys we issue (valid for one hour; the key for renewing them for 30 days), never your Apple sign-in or the app's sign-in. The server stores these keys only in a scrambled form (a hash) that can never be read again. Expired keys are deleted 7 days after they expire; the record of an ended connection 30 days after it ended.</li>
+  <li id="en-8-7"><strong>Save receipts.</strong> So that a retry from ChatGPT does not store a second copy, each save leaves a receipt. While the memory exists, the receipt holds the title, text, date, tag and number of photos as saved; once the memory is removed for good (see 5.3), these are erased and only a scrambled fingerprint (a hash) and dates remain, from which no content can be read. The fingerprint is kept as long as your family exists, so an old retry cannot save a deleted memory again; it is deleted with the family.</li>
+  <li id="en-8-8"><strong>Limits.</strong> Each family can save at most 20 memories from ChatGPT a day, and try at most 60 times in any 24 hours (including tries that fail partway); each memory takes at most 6 photos of at most 10 MB and 50 million pixels each. The tries are counted with only the family and the time, deleted after 48 hours.</li>
+  <li id="en-8-9"><strong>A save that fails.</strong> If a save fails partway, a photo already uploaded cannot be opened by anyone and is removed automatically, normally within a day; this also holds after an account is deleted.</li>
+  <li id="en-8-10"><strong>Disconnecting.</strong> Settings → the "Connected: ChatGPT" card → Disconnect. After that, saving from ChatGPT asks you to connect again; memories already saved stay. Disconnecting your account for this app inside ChatGPT also ends the connection. Leaving the family or deleting your account ends it too. Each adult's connection is their own and is seen and ended only in their own app.</li>
 </ol>
 
-<h2>9. Security</h2>
+<h2>9. Children</h2>
 <ol>
-  <li id="en-9-1">Everything between the phone and the server travels over encrypted connections (HTTPS). Photos and recordings are stored in private storage and can be read only through temporary links. The AI providers' keys are kept only on the server, never in the app.</li>
+  <li id="en-9-1">This app is for adults and is not directed at children; children should not use it or sign up themselves. Everything about a child in the app is written by an adult. If you believe a child has created an account, please contact us.</li>
 </ol>
 
-<h2>10. Changes to this page</h2>
+<h2>10. Security</h2>
 <ol>
-  <li id="en-10-1">If what is sent to which AI provider changes, the app shows the AI notice again the next time you open it and asks you to confirm. Other changes update the effective date at the top of this page.</li>
+  <li id="en-10-1">Everything between the phone and the server travels over encrypted connections (HTTPS). Photos and recordings are stored in private storage and can be read only through temporary links. The AI providers' keys are kept only on the server, never in the app. The keys ChatGPT uses are stored only in a scrambled form; the Allow page cannot be opened inside another web page, so you cannot be tricked into clicking it.</li>
 </ol>
 
-<h2>11. Contact</h2>
+<h2>11. Changes to this page</h2>
 <ol>
-  <li id="en-11-1">For questions, to delete data or for help, write to <span class="email">theselittleyears.app@gmail.com</span>, or use Settings → Feedback in the app.</li>
+  <li id="en-11-1">If what is sent to which AI provider changes, the app shows the AI notice again the next time you open it and asks you to confirm. Other changes update the effective date at the top of this page. If the promise on the Allow page about ChatGPT changes, ChatGPT asks you to connect again the next time you save, and the Allow page shows the new text.</li>
+</ol>
+
+<h2>12. Contact</h2>
+<ol>
+  <li id="en-12-1">For questions, to delete data or for help, write to <span class="email">theselittleyears.app@gmail.com</span>, or use Settings → Feedback in the app.</li>
 </ol>
 </section>
 
 <section id="zh" lang="zh-Hans">
 <h1>隐私政策</h1>
-<p class="meta">These Little Years（中文名暂为「小时候」）· 生效日期：2026-10-21</p>
+<p class="meta">These Little Years（中文名暂为「小时候」）· 生效日期：2026-10-25</p>
 <p class="lang"><a href="#en">English</a></p>
 
 <p>These Little Years 是给父母和其他照顾孩子的大人用的 app：你讲一段孩子的事，它帮你整理成回忆，记下成长的变化。这一页说清楚我们收了什么、交给谁处理、留多久、你怎么导出和删除，以及开发者能看到什么、承诺不看什么。</p>
@@ -140,13 +163,13 @@
 
 <h2>1. 我们收集什么</h2>
 <ol>
-  <li id="zh-1-1"><strong>账号。</strong>你用「通过 Apple 登录」时，Apple 给我们一个账号编号和一个邮箱；如果你选了「隐藏邮件地址」，这个邮箱是 Apple 的中转地址。Apple 给的姓名我们不保存。用邮箱验证码登录时，是你填的邮箱。用密码登录只给 Apple 审核用的演示账号。</li>
+  <li id="zh-1-1"><strong>账号。</strong>你用「通过 Apple 登录」时，Apple 给我们一个账号编号和一个邮箱；如果你选了「隐藏邮件地址」，这个邮箱是 Apple 的中转地址。Apple 给的姓名我们不保存。用邮箱验证码登录时，是你填的邮箱。用密码登录只给 Apple 审核用的演示账号。连接 ChatGPT 时，你在我们的「允许」网页上用 Apple 登录，用的是同一个账号；连接本身的记录见 8.6。</li>
   <li id="zh-1-2"><strong>孩子和你。</strong>孩子的小名、生日、她 / 他；你是谁（妈妈、爸爸，或你自己写的称呼）；家里的时区（来自手机设置，用来算「今天」是哪一天）。</li>
-  <li id="zh-1-3"><strong>你记下的内容。</strong>录音和它转出来的文字、你对文字的修改、你打的字、AI 的回应、整理出的回忆和你对回忆的每一次修改、你选的照片和照片里记录的拍摄时间（用来建议回忆的日期）、成长标签，以及家里常用的词（如果有）。</li>
-  <li id="zh-1-4"><strong>不含内容的诊断数据。</strong>app 出错时的错误报告（发出前去掉文字、名字、邮箱、编号、网址和文件路径）；少量使用事件，例如开始和结束录音（段数和秒数）、存了一篇回忆、导出完成、删除或恢复了哪一类东西，带上 app 的版本号；每一次 AI 调用的记录：哪一步、哪个模型、用了多久、用了多少 token、多少钱、成功还是出错，不含你说的话或回忆的内容。只有在你同意 AI 说明、建好孩子资料之后，这些才会从手机发出。</li>
+  <li id="zh-1-3"><strong>你记下的内容。</strong>录音和它转出来的文字、你对文字的修改、你打的字、AI 的回应、整理出的回忆和你对回忆的每一次修改、你选的照片和照片里记录的拍摄时间（用来建议回忆的日期）、成长标签，以及家里常用的词（如果有）。从 ChatGPT 存进来的回忆和照片也在这里（见 8.3）。</li>
+  <li id="zh-1-4"><strong>不含内容的诊断数据。</strong>app 出错时的错误报告（发出前去掉文字、名字、邮箱、编号、网址和文件路径）；少量使用事件，例如开始和结束录音（段数和秒数）、存了一篇回忆（从 ChatGPT 存的，记下照片张数和有没有标签）、导出完成、删除或恢复了哪一类东西，带上 app 的版本号；每一次 AI 调用的记录：哪一步、哪个模型、用了多久、用了多少 token、多少钱、成功还是出错，不含你说的话或回忆的内容。从 ChatGPT 保存时，服务器对每次请求只记结果、用时、照片的张数、大小、格式和像素数，以及照片来自哪个网站，不记任何内容。只有在你同意 AI 说明、建好孩子资料之后，这些才会从手机发出。</li>
   <li id="zh-1-5"><strong>你主动发的反馈。</strong>你在「设置 → 反馈」里写的那句话，加上你当时在的页面、app 版本号和最近一次 AI 调用的编号；不会附带你的回忆内容。</li>
   <li id="zh-1-6"><strong>Apple 的崩溃报告。</strong>app 崩溃时，Apple 可能按你手机上的设置，通过 TestFlight 把崩溃报告转给我们。</li>
-  <li id="zh-1-7"><strong>我们不收集的。</strong>app 只请求麦克风权限，不请求位置、相机、通讯录或广告追踪权限。照片用系统自带的选择器，只上传你选中的那几张，app 不能浏览你的相册。app 里没有广告，也没有任何第三方统计或追踪工具。照片上传前会在手机上重新保存一份，上传的这份不带原照片里的位置信息（GPS）和相机信息；只有拍摄时间在手机上读出，单独保存（见 1.3）。</li>
+  <li id="zh-1-7"><strong>我们不收集的。</strong>app 只请求麦克风权限，不请求位置、相机、通讯录或广告追踪权限。照片用系统自带的选择器，只上传你选中的那几张，app 不能浏览你的相册。app 里没有广告，也没有任何第三方统计或追踪工具。照片上传前会在手机上重新保存一份，上传的这份不带原照片里的位置信息（GPS）和相机信息；只有拍摄时间在手机上读出，单独保存（见 1.3）。从 ChatGPT 存进来的照片不经过手机，在我们的服务器上同样重新保存、去掉这些信息（见 8.5）。</li>
   <li id="zh-1-8"><strong>你的家人。</strong>你家里有哪些大人（最多 6 位），每个人在家里的身份（创建这个家的人，或被邀请加入的人）和他们是孩子的谁；每段对话是谁开始的、每处修改是谁做的；还有创建者生成的邀请码——服务器只保存打乱后的形式（哈希），之后谁也读不出来，以及它什么时候生成、用掉或作废。用错邀请码的次数会记 24 小时，用来防止乱猜。</li>
 </ol>
 
@@ -161,17 +184,19 @@
 <p>只有下面这几家服务商经手你的数据，每一家只做写明的那件事。</p>
 <ol>
   <li id="zh-3-1"><strong>Supabase</strong>：存放全部数据、照片和录音，负责登录，运行我们的服务器程序。服务器在美国。</li>
-  <li id="zh-3-2"><strong>OpenAI</strong>：你的录音会发给 OpenAI 转成文字。为了听准名字，孩子的名字、小名、你是谁，还有家里常用的词，也会一起发过去。</li>
-  <li id="zh-3-3"><strong>Anthropic（Claude）</strong>：你说的和打的字（包括你改过的文字和你给「再写一版」写的一句要求）、你存下的回忆（回应你时是最近十篇的标题和第一句；判断成长变化时是这一篇和已有的成长标签），加上孩子的名字、小名、生日、她 / 他、你是谁和家里常用的词，会发给 Anthropic，用来回应你、整理成回忆、发现成长的变化。</li>
+  <li id="zh-3-2"><strong>OpenAI</strong>：你的录音会发给 OpenAI 转成文字。为了听准名字，孩子的名字、小名、你是谁，还有家里常用的词，也会一起发过去。这是我们自己对 OpenAI 的使用；你自己用 ChatGPT 时，见 8.2。</li>
+  <li id="zh-3-3"><strong>OpenAI</strong>（回应和整理回忆）：你说的和打的字（包括你改过的文字和你给「再写一版」写的一句要求）、你存下的回忆（回应你时是最近十篇的标题和第一句；判断成长变化时是这一篇和已有的成长标签），加上孩子的名字、小名、生日、她 / 他、你是谁和家里常用的词，会发给 OpenAI，用来回应你、整理成回忆、发现成长的变化。</li>
   <li id="zh-3-4"><strong>Apple</strong>：提供「通过 Apple 登录」，通过 TestFlight 分发测试版和崩溃报告；你删除账号时，我们请 Apple 撤销这个 app 的「通过 Apple 登录」授权。</li>
-  <li id="zh-3-5"><strong>你的照片不会发给任何 AI。</strong>照片只存在 Supabase 上属于你家的私有空间里。</li>
-  <li id="zh-3-6">OpenAI 和 Anthropic 按它们的 API 条款，<strong>不会用这些内容训练模型</strong>，一般在 30 天内删除。我们没有打开任何允许它们用这些数据训练或与他人共享的选项。</li>
-  <li id="zh-3-7">除了上面这几家，我们不把你的数据交给任何人，除非法律要求。</li>
+  <li id="zh-3-5"><strong>我们不会把你的照片发给任何 AI。</strong>照片只存在 Supabase 上属于你家的私有空间里。你在 ChatGPT 里附的照片，OpenAI 已经在你的 ChatGPT 里看到了（见 8.2）。</li>
+  <li id="zh-3-6">OpenAI 按它的 API 条款，<strong>不会用这些内容训练模型</strong>，一般在 30 天内删除。我们没有打开任何允许它用这些数据训练或与他人共享的选项。这只管我们发给它的内容，不管你自己在 ChatGPT 里说的（见 8.2）。</li>
+  <li id="zh-3-7"><strong>Cloudflare</strong>：提供连接 ChatGPT 时打开的「允许」网页（见 8.1）。像所有网站服务商一样，你打开这个页面时它会看到你的 IP 地址和浏览器信息。页面本身是固定的文件：你的登录和你点的「允许」从你的浏览器直接发到 Supabase，不经过 Cloudflare。</li>
+  <li id="zh-3-8">这一页隐私政策本身放在 <strong>GitHub Pages</strong> 上；像所有网站服务商一样，你打开它时 GitHub 会看到你的 IP 地址和浏览器信息。</li>
+  <li id="zh-3-9">除了上面这几家，我们不把你的数据交给任何人，除非法律要求。</li>
 </ol>
 
 <h2>4. 谁能看到你家的内容</h2>
 <ol>
-  <li id="zh-4-1">你家里登录了账号的人：你，以及你邀请来的家人（或邀请你加入的家人）。他们每个人都能看到这个家里的全部内容——对话、录音、回忆、照片和成长记录——也能修改和删除回忆、成长记录，更正转写的文字；原来的录音和原话不会被改动。每一条数据都属于一个家庭，服务器在数据库这一层检查，不同的家庭互相看不到，照片和录音文件也一样。离开这个家的人立刻看不到任何内容（离开之前拿到的链接见 5.6）。</li>
+  <li id="zh-4-1">你家里登录了账号的人：你，以及你邀请来的家人（或邀请你加入的家人）。他们每个人都能看到这个家里的全部内容——对话、录音、回忆、照片和成长记录——也能修改和删除回忆、成长记录，更正转写的文字；原来的录音和原话不会被改动。每一条数据都属于一个家庭，服务器在数据库这一层检查，不同的家庭互相看不到，照片和录音文件也一样。离开这个家的人立刻看不到任何内容（离开之前拿到的链接见 5.6）。你允许的 ChatGPT 连接只能往你家存回忆，并读 8.4 写的那几样，读不到其他内容。</li>
   <li id="zh-4-2">作为开发者，我在技术上能看到服务器上存的所有内容。我承诺：平时只看数字（次数、费用、出错）；只有在你找我帮忙并且同意，或者法律要求时，才会打开你家的内容；没有你的明确同意，不会把你家的内容用在测试或提示词里；不出售，不分享。</li>
   <li id="zh-4-3">AI 调用记录里只有上面 1.4 说的那些数字，没有内容。</li>
 </ol>
@@ -180,13 +205,13 @@
 <ol>
   <li id="zh-5-1"><strong>录音。</strong>手机上的录音会一直留到服务器确认收到它的转写，防止丢失。服务器上的录音在转成文字 30 天后自动删除，文字留着。上传了却没有用上的录音，上传 30 天后删除。</li>
   <li id="zh-5-2"><strong>文字、回忆、照片、成长标签</strong>一直保留，直到你或家里的其他人删除。</li>
-  <li id="zh-5-3"><strong>你删除的东西。</strong>删除的回忆和对话，30 天内可以在「设置 → 最近删除」里恢复。删除的东西在 30 天后由每天一次的清理永久删除，连同它们的照片和录音文件。不再属于任何回忆的照片，30 天后删除。</li>
-  <li id="zh-5-4"><strong>删除账号。</strong>你家的全部数据立刻删除，然后删除照片和录音文件，最后删除登录账号。只留下一条不含内容的记录：各类数据有多少条、这个家庭的 AI 费用、Apple 撤销的结果；不含名字、邮箱或任何编号。</li>
+  <li id="zh-5-3"><strong>你删除的东西。</strong>删除的回忆和对话，30 天内可以在「设置 → 最近删除」里恢复。删除的东西在 30 天后由每天一次的清理永久删除，连同它们的照片和录音文件。不再属于任何回忆的照片，30 天后删除。从 ChatGPT 存的回忆被永久删除时，它的保存回执里的内容也一起抹掉（见 8.7）。</li>
+  <li id="zh-5-4"><strong>删除账号。</strong>你家的全部数据立刻删除，然后删除照片和录音文件，最后删除登录账号。和 ChatGPT 的连接同时断开。只留下一条不含内容的记录：各类数据有多少条、这个家庭的 AI 费用、Apple 撤销的结果；不含名字、邮箱或任何编号。</li>
   <li id="zh-5-5"><strong>诊断数据。</strong>错误报告和使用事件不含内容，到达服务器 12 个月后由每天一次的清理自动删除；删除账号后留下的那条记录（5.4）也一样。在那之前，删除账号后它们仍然保留，但不再和你的账号或家庭关联。AI 调用记录（1.4）属于你家的数据，随你家的数据一起删除（5.4）。</li>
-  <li id="zh-5-6"><strong>临时链接。</strong>app 显示照片、播放录音或导出时，会向服务器要一个临时链接，最多一小时有效。删除之前要到的链接，在过期之前仍然能打开那个文件。离开这个家的人也是这样：离开之前拿到的链接在过期之前还能用，之后不会再给他新的链接。</li>
-  <li id="zh-5-7"><strong>服务商自己的记录。</strong>删除之后，Supabase 自己的登录审计日志（可能含你的邮箱）还会保留一段时间，由 Supabase 管理。数据库的每日备份打开后，已删除的数据还会在备份里留到备份过期，最多 7 天。OpenAI 和 Anthropic 的保留见 3.6。</li>
+  <li id="zh-5-6"><strong>临时链接。</strong>app 显示照片、播放录音或导出时，会向服务器要一个临时链接，最多一小时有效。删除之前要到的链接，在过期之前仍然能打开那个文件。离开这个家的人也是这样：离开之前拿到的链接在过期之前还能用，之后不会再给他新的链接。ChatGPT 里「已保存」卡片上的照片小图也用这种最多一小时有效的链接。</li>
+  <li id="zh-5-7"><strong>服务商自己的记录。</strong>删除之后，Supabase 自己的登录审计日志（可能含你的邮箱）还会保留一段时间，由 Supabase 管理。数据库的每日备份打开后，已删除的数据还会在备份里留到备份过期，最多 7 天。OpenAI 的保留见 3.6。你在 ChatGPT 里的对话和「已保存」卡片，由 OpenAI 按你的 ChatGPT 设置保留（见 8.2）。</li>
   <li id="zh-5-8"><strong>手机上的副本。</strong>app 会在手机上留一份看过的照片和列表，没有网络也能看。退出登录时，如果还有没发出的录音、照片或修改，app 会先告诉你有几样，你确认后它们会从这台手机删除。</li>
-  <li id="zh-5-9"><strong>邀请码和离开的家人。</strong>邀请码在用掉、过期（7 天）或作废 30 天后删除；用错的记录 24 小时后删除。有人离开一个家时，他的登录账号变成一个匿名的占位记录——不保留邮箱、名字、密码或登录方式，只留一个内部编号——这样他记下的回忆仍然标得清楚是谁记的；这个记录随这个家一起删除。</li>
+  <li id="zh-5-9"><strong>邀请码和离开的家人。</strong>邀请码在用掉、过期（7 天）或作废 30 天后删除；用错的记录 24 小时后删除。有人离开一个家时，他的登录账号变成一个匿名的占位记录——不保留邮箱、名字、密码或登录方式，只留一个内部编号——这样他记下的回忆仍然标得清楚是谁记的；这个记录随这个家一起删除。离开的家人留在这个家里的内容属于这个家，按这个家现在的成员的同意来处理，包括发给 OpenAI 的部分（见 3）。</li>
 </ol>
 
 <h2>6. 怎么导出</h2>
@@ -202,26 +227,41 @@
   <li id="zh-7-2">全部：「设置 → 删除账号和全部数据」，输入孩子的小名确认。删除后不能恢复，也不会出现在「最近删除」里。用 Apple 登录的账号，app 会再请你在 Apple 的窗口里确认一次，以便我们撤销 Apple 授权；你也可以在 iPhone 的 Apple 账户设置里自己停止「通过 Apple 登录」。只有创建这个家的人能这样做；它会为所有人删除这个家，家里其他每个大人的账号（包括离开的人留下的匿名记录）也会一起删除。</li>
   <li id="zh-7-3">只删除 app 不会删除服务器上的数据。要删除，请用上面的「删除账号和全部数据」，或者写信给我们。</li>
   <li id="zh-7-4">离开你被邀请加入的家：「设置 → 家人 → 离开这个家」。你的账号会删除（用 Apple 登录的账号会再确认一次，以便我们撤销 Apple 授权）；你记下的内容都留在这个家里，家里其他大人仍然能看到、修改或删除。</li>
+  <li id="zh-7-5">断开 ChatGPT：见 8.10。</li>
 </ol>
 
-<h2>8. 孩子</h2>
+<h2>8. 从 ChatGPT 保存</h2>
 <ol>
-  <li id="zh-8-1">这个 app 给大人用，不面向儿童，孩子不应该自己使用或注册。app 里关于孩子的内容，都是大人写下的。如果你认为有孩子自己建了账号，请联系我们。</li>
+  <li id="zh-8-1"><strong>连接。</strong>你可以在自己的 ChatGPT 里添加 These Little Years，在对话里说「保存成日记」，把一篇回忆存进你的家庭。连接时，ChatGPT 会打开我们的「允许」页：你用在 App 里用的同一个 Apple ID 登录，然后点「允许」。只有已经在 App 里建好家庭、确认过 AI 说明的账号才能连接。只有你刚刚在自己的 ChatGPT 里点了连接，才点「允许」。如果有人发给你一个这个页面的链接，不要允许。</li>
+  <li id="zh-8-2"><strong>ChatGPT 是你自己的，由 OpenAI 处理。</strong>你在 ChatGPT 里说的话、附的照片，以及 ChatGPT 写出的内容，都由 OpenAI 按你自己的 ChatGPT 账号、OpenAI 给你的条款和你的设置处理（包括会不会用来训练模型）。这不在本页的承诺范围内，3.6 也不适用；请看 OpenAI 自己的隐私说明和你的 ChatGPT 设置。日记是 ChatGPT 用它自己的模型写的。从 ChatGPT 保存时，我们自己不调用任何 AI。</li>
+  <li id="zh-8-3"><strong>我们收到什么。</strong>只有你要求保存时，ChatGPT 才把它写好的那一篇日记发给我们：标题、正文、日期、加引号的孩子原话、最多一个成长标签和它的「这一步」，以及你为这件事附的照片（最多 6 张）。我们不收、也不保存 ChatGPT 里的对话、你的原话或录音。这篇回忆存在你的家庭里，标着「来自 ChatGPT」；之后它和别的回忆一样，可以看、改、删除、导出（见 4、5、6、7）。以后你在 App 里记新的事时，最近几篇回忆的标题和第一句话（包括从 ChatGPT 存进来的）会作为背景发给 OpenAI，用来写回应（见 3.3）。发的只是这些文字，没有录音，也没有照片；从 ChatGPT 存进来的回忆本身没有录音。</li>
+  <li id="zh-8-4"><strong>ChatGPT 能从我们这里读到什么。</strong>为了选标签，ChatGPT 能从我们这里读到：你家时区的今天日期、她 / 他，以及孩子的成长标签——每个标签所属的方面（语言、大运动、认知、社交情感、自理、睡眠饮食之一）、名称、一个内部编号和它有几步。它读不到你的其他回忆、对话、录音或照片。我们不把孩子的小名、名字或生日发给 OpenAI；ChatGPT 只按你在对话里怎么叫孩子来写，否则写「她 / 他」。保存后，ChatGPT 里会出现一张「已保存」卡片，显示存下的标题、正文、日期、标签和照片的小图（小图链接最多一小时有效）。这张卡片留在你的 ChatGPT 对话里，归 OpenAI 处理；在 App 里删除这篇回忆，不会把它从 ChatGPT 里删掉。</li>
+  <li id="zh-8-5"><strong>照片。</strong>我们从 ChatGPT 给的 OpenAI 文件地址取回照片，在我们的服务器上重新保存一份（长边最多 2048 像素的 JPEG），去掉位置（GPS）、相机信息和其他所有附带信息；只有拍摄时间先读出来，单独保存（同 1.3）。我们不会把照片发给任何 AI。你在 ChatGPT 里附的照片，OpenAI 在你的 ChatGPT 里已经看到了（见 8.2）。</li>
+  <li id="zh-8-6"><strong>连接记录。</strong>我们记下：是哪个账号、连接的是哪个应用（ChatGPT）、什么时候连接、同意的是哪一版「允许」页文字、最近一次什么时候用过。ChatGPT 拿到的只是我们发的随机钥匙（一小时有效，续期用的钥匙 30 天有效），拿不到你的 Apple 登录，也拿不到 App 的登录。服务器只保存这些钥匙打乱后的形式（哈希），之后谁也读不出来。过期的钥匙在过期 7 天后删除；断开的连接记录在断开 30 天后删除。</li>
+  <li id="zh-8-7"><strong>保存回执。</strong>为了让 ChatGPT 重试时不会多存一篇，每次保存会留一份回执。回忆还在时，回执里有当时存下的标题、正文、日期、标签和照片张数；回忆被永久删除后（见 5.3），这些内容会被抹掉，只留下一个打乱后的指纹（哈希）和日期，读不出任何内容。这个指纹在你的家庭存在期间一直保留，这样旧的重试不能把已经删除的回忆再存回来；它随家庭一起删除。</li>
+  <li id="zh-8-8"><strong>限制。</strong>每个家庭每天最多从 ChatGPT 存 20 篇；任意 24 小时内最多尝试保存 60 次（包括中途失败的）；每篇最多 6 张照片，每张最多 10 MB、5000 万像素。尝试次数只记家庭和时间，48 小时后删除。</li>
+  <li id="zh-8-9"><strong>没存成功的保存。</strong>如果一次保存中途出错，已经上传的照片谁也打不开，会被自动删除，通常在一天之内；删除账号之后也是这样。</li>
+  <li id="zh-8-10"><strong>断开。</strong>「设置」里「已连接 ChatGPT」那一栏点「断开」。断开后，在 ChatGPT 里再说保存会要求重新连接；已经存下的回忆不受影响。在 ChatGPT 里断开这个应用的账号，也会断开连接。离开这个家或删除账号时，连接也会一起断开。每位大人的连接是各自的，只能在自己的 App 里看到和断开。</li>
 </ol>
 
-<h2>9. 安全</h2>
+<h2>9. 孩子</h2>
 <ol>
-  <li id="zh-9-1">手机和服务器之间全部走加密连接（HTTPS）。照片和录音存在私有空间里，只能通过临时链接读取。AI 服务商的密钥只放在服务器上，不在 app 里。</li>
+  <li id="zh-9-1">这个 app 给大人用，不面向儿童，孩子不应该自己使用或注册。app 里关于孩子的内容，都是大人写下的。如果你认为有孩子自己建了账号，请联系我们。</li>
 </ol>
 
-<h2>10. 这一页的变化</h2>
+<h2>10. 安全</h2>
 <ol>
-  <li id="zh-10-1">如果「什么内容发给哪家 AI」有变化，app 会在你下次打开时再显示一次 AI 说明，请你重新确认。其他改动会更新本页顶上的生效日期。</li>
+  <li id="zh-10-1">手机和服务器之间全部走加密连接（HTTPS）。照片和录音存在私有空间里，只能通过临时链接读取。AI 服务商的密钥只放在服务器上，不在 app 里。ChatGPT 用的钥匙只以打乱后的形式保存；「允许」页不能被放进别的网页里打开，防止被骗点击。</li>
 </ol>
 
-<h2>11. 联系我们</h2>
+<h2>11. 这一页的变化</h2>
 <ol>
-  <li id="zh-11-1">有问题、想删除数据或需要帮助，请写信到 <span class="email">theselittleyears.app@gmail.com</span>，或者在 app 里用「设置 → 反馈」。</li>
+  <li id="zh-11-1">如果「什么内容发给哪家 AI」有变化，app 会在你下次打开时再显示一次 AI 说明，请你重新确认。其他改动会更新本页顶上的生效日期。如果「允许」页上关于 ChatGPT 的承诺有变化，ChatGPT 下次保存时会请你重新连接，在「允许」页上看到新的文字。</li>
+</ol>
+
+<h2>12. 联系我们</h2>
+<ol>
+  <li id="zh-12-1">有问题、想删除数据或需要帮助，请写信到 <span class="email">theselittleyears.app@gmail.com</span>，或者在 app 里用「设置 → 反馈」。</li>
 </ol>
 </section>
 
